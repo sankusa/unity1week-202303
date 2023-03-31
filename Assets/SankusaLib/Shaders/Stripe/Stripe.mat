@@ -37,10 +37,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Fineness: 12.68
-    - _Propotion: 0.5
-    - _Rotation: 24.25
-    - _ScrollSpeed: 0.04
+    - _Propotion: 0.21
+    - _Rotation: 1.57
+    - _ScrollSpeed: -0.04
     m_Colors:
-    - _Color1: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
-    - _Color2: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
+    - _Color1: {r: 1, g: 1, b: 1, a: 1}
+    - _Color2: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
   m_BuildTextureStacks: []

@@ -103,6 +103,7 @@ crashlytics-build.properties
 # Sankusa
 /Assets/*
 !/Assets/Sankusa/
+/Assets/Sankusa/ExternalArtworks
 !/Assets/GreyEngine/
 !/Assets/SankusaLib/
 !/Assets/WeedLib/

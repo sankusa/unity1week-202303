@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb45212464ecec47a4120a29fa9ba36, type: 3}
+  m_Name: EffectPrefabMaster
+  m_EditorClassIdentifier: 
+  parameterTextEffectPrefab: {fileID: 6674097112739685231, guid: f78d70576ef02de4db5f0da2b54ba41e, type: 3}
+  thoughtTextEffectPrefab: {fileID: 6016113316218378147, guid: edebc8c56feb29943aec48b1dfe6d8d1, type: 3}
+  talkTextEffectPrefab: {fileID: 3787254554912267012, guid: fe943a9f175c6e44395e4705d11e439a, type: 3}

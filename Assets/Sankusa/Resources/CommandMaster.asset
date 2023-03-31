@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed9d7264715cc348bf83542be125fbf, type: 3}
+  m_Name: CommandMaster
+  m_EditorClassIdentifier: 
+  commands:
+  - commandId: Finish
+    name: "\u4FE1\u4EF0\u7389"
+    energyCost: 0
+    user: 0
+    timing: 0
+    commandEffect: {fileID: 11400000, guid: a63302b023018bd4e95f3f1773806fcf, type: 2}
+  - commandId: StartBattle
+    name: "\u5E03\u6559\u958B\u59CB"
+    energyCost: 0
+    user: 0
+    timing: 0
+    commandEffect: {fileID: 11400000, guid: 7d26380757e28fa4e94e024d52d8e32a, type: 2}
+  - commandId: StopBattle
+    name: "\u5E03\u6559\u4E2D\u6B62"
+    energyCost: 0
+    user: 0
+    timing: 1
+    commandEffect: {fileID: 11400000, guid: 1667e698f77bd94429d0da1928c1f10f, type: 2}
+  - commandId: Punch
+    name: "\u6BB4\u308B"
+    energyCost: 0
+    user: 2
+    timing: 1
+    commandEffect: {fileID: 11400000, guid: f39518f5e8733e543a0d08dce780fd8c, type: 2}
+  - commandId: Inform
+    name: "\u826F\u3055\u3092\u4F1D\u3048\u308B"
+    energyCost: 1
+    user: 2
+    timing: 1
+    commandEffect: {fileID: 11400000, guid: da30d8fc27b858348b3ad5b715649a53, type: 2}

@@ -5,6 +5,7 @@ using UnityEngine;
 namespace SankusaLib {
     [RequireComponent(typeof(Canvas))]
     [ExecuteAlways]
+    [DefaultExecutionOrder(1)]
     public class WorldCanvasAdjuster : MonoBehaviour
     {
         private Camera targetCamera = null;
