@@ -4,6 +4,9 @@ using UnityEngine;
 using Sankusa.unity1week202303.Domain;
 using UniRx;
 using SankusaLib;
+using Cysharp.Threading.Tasks;
+using System.Threading;
+using System;
 
 namespace Sankusa.unity1week202303.Presentation
 {
@@ -36,10 +39,13 @@ namespace Sankusa.unity1week202303.Presentation
                 .AddTo(this);
         }
 
-        public void GenerateTalkTextEffect(string message)
+        public async UniTask GenerateTalkTextEffect(string message, float duration = 1f)
         {
             TextEffect textEffect = Instantiate(EffectPrefabMaster.Instance.TalkTextEffectPrefab, effectGeneratePositionMarker.position, Quaternion.identity);
+            textEffect.Duration = duration;
             textEffect.Text = message;
+
+            await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }
     }
 }

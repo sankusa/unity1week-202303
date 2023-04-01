@@ -39,6 +39,12 @@ namespace Sankusa.unity1week202303.Presentation
             CommandArg arg = ConstructCommandArg(user, commandId);
 
             await commandMaster.FindByCommandId(arg.CommandId).InvokeAsync(arg, source.Token);
+
+            CommandReacterBase reacter = user.Human.BattleTarget?.GetHumanComponent<CommandReacterBase>();
+            if(reacter != null)
+            {
+                await reacter.ReactionAsync(arg);
+            }
         }
 
         public bool IsInvokable(HumanCore user, string commandId)

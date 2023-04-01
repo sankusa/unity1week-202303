@@ -48,3 +48,10 @@ MonoBehaviour:
     timing: 1
     commandEffect: {fileID: 11400000, guid: da30d8fc27b858348b3ad5b715649a53, type: 2}
     description: "\u3084\u3093\u308F\u308A\u4F1D\u3048\u308B\u3002"
+  - commandId: Greeting
+    name: "\u6328\u62F6"
+    energyCost: 0
+    user: 2
+    timing: 1
+    commandEffect: {fileID: 11400000, guid: 358b636415b0d8d4484213b899e09a85, type: 2}
+    description: "\u307E\u305A\u306F\u3042\u3044\u3055\u3064\u3002"

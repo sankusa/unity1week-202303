@@ -20,6 +20,11 @@ namespace SankusaLib {
 
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private float duration;
+        public float Duration
+        {
+            get => duration;
+            set => duration = value;
+        }
 
         [SerializeField] private float toAlpha;
         [SerializeField] private Ease alphaEase;

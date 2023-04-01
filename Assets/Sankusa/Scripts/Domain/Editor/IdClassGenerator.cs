@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using SankusaLib;
+using Sankusa.unity1week202303.Presentation;
 
 namespace Sankusa.unity1week202303.Domain
 {
@@ -32,6 +33,33 @@ namespace Sankusa.unity1week202303.Domain
             string script = scriptTemplate.Replace("#BODY#", scriptBody);
 
             string filePath = AUTO_GENERATED_SCRIPTS_PATH + "/HumanParameterId.cs";
+            string assetPath = AssetDatabase.GenerateUniqueAssetPath(filePath);
+            System.IO.File.WriteAllText(filePath, script);
+            AssetDatabase.Refresh();
+        }
+
+        [MenuItem("WitchFruit/コマンドIdクラス更新")]
+        private static void UpdateCommandIdClass() {
+            string scriptTemplate = @"
+namespace Sankusa.unity1week202303.Domain
+{
+    public static class CommandId
+    {
+#BODY#
+    }
+}
+";
+            string scriptBody = "";
+            List<CommandMaster> masters = AssetUtil.LoadAllAssets<CommandMaster>();
+            if(masters.Count != 1) {
+                Debug.LogError("Master exist " + masters.Count);
+            }
+            foreach(Command data in masters[0].Commands) {
+                scriptBody += "        public const string " + data.CommandId + " = \"" + data.CommandId + "\";\r\n";
+            }
+            string script = scriptTemplate.Replace("#BODY#", scriptBody);
+
+            string filePath = AUTO_GENERATED_SCRIPTS_PATH + "/CommandId.cs";
             string assetPath = AssetDatabase.GenerateUniqueAssetPath(filePath);
             System.IO.File.WriteAllText(filePath, script);
             AssetDatabase.Refresh();
