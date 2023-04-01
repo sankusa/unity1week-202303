@@ -29,6 +29,9 @@ namespace Sankusa.unity1week202303.Presentation
         [SerializeField] private CommandEffectBase commandEffect;
         public CommandEffectBase CommandEffect => commandEffect;
 
+        [SerializeField] private string description;
+        public string Description => description;
+
         public bool IsLearnable(HumanCore user)
         {
             if(user.Human.IsPlayer)

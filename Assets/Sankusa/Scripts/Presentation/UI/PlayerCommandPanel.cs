@@ -25,6 +25,8 @@ namespace Sankusa.unity1week202303.Presentation
         [Inject] private HumanManager humanManager;
         [Inject] private DiContainer container;
         private HumanCore playerHumanCore;
+
+        private CompositeDisposable compositeDisposable = new CompositeDisposable();
         
 
         void Start()
@@ -43,6 +45,8 @@ namespace Sankusa.unity1week202303.Presentation
 
         private void Repaint()
         {
+            compositeDisposable.Clear();
+
             gameObject.SetActive(!playerHumanCore.Human.IsInvokingCommand);
 
             if(battleManager.Battles.Where(x => x.Joiners.Where(y => y == playerHumanCore).FirstOrDefault() != null).FirstOrDefault() != null)
@@ -80,6 +84,12 @@ namespace Sankusa.unity1week202303.Presentation
             for(int i = 0; i < invokableCommands.Count; i++)
             {
                 commandButtons[i].SetValue(playerHumanCore, invokableCommands[i].CommandId);
+                commandButtons[i].OnPointerEnter
+                    .Subscribe(command => descriptionText.text = command.Description)
+                    .AddTo(compositeDisposable);
+                commandButtons[i].OnPointerExit
+                    .Subscribe(command => descriptionText.text = "")
+                    .AddTo(compositeDisposable);
             }
         }
     }

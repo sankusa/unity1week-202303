@@ -9,6 +9,7 @@ using UniRx;
 using TMPro;
 using Cysharp.Threading.Tasks;
 using System.Threading;
+using System;
 
 namespace Sankusa.unity1week202303.Presentation
 {
@@ -21,6 +22,12 @@ namespace Sankusa.unity1week202303.Presentation
         private HumanCore commandUser;
         private Command command;
 
+        private Subject<Command> onPointerEnter = new Subject<Command>();
+        public IObservable<Command> OnPointerEnter => onPointerEnter;
+
+        private Subject<Command> onPointerExit = new Subject<Command>();
+        public IObservable<Command> OnPointerExit => onPointerExit;
+
         void Start()
         {
             button.AddListenerToPointerClick(() =>
@@ -29,13 +36,14 @@ namespace Sankusa.unity1week202303.Presentation
                 commandInvoker.InvokeCommandAsync(commandUser, command.CommandId).Forget();
             });
 
-            button.AddListenerToPointerEnter(() =>
-            {
-                Debug.Log(command.Name);
-            });
             button.AddListenerToPointerExit(() =>
             {
-                Debug.Log(command.Name);
+                onPointerExit.OnNext(command);
+            });
+
+            button.AddListenerToPointerEnter(() =>
+            {
+                onPointerEnter.OnNext(command);
             });
 
             Observable

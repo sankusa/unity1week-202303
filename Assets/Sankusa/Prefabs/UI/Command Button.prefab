@@ -237,6 +237,66 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.39215687
       objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: NormalAnimation.Animation.ToValue.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: PressedAnimation.Animation.ToValue.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: DisabledAnimation.Animation.ToValue.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: NormalAnimation.Animation.FromValue.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: SelectedAnimation.Animation.ToValue.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: NormalAnimation.Animation.StartColor.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: PressedAnimation.Animation.FromValue.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: DisabledAnimation.Animation.FromValue.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: PressedAnimation.Animation.StartColor.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: SelectedAnimation.Animation.FromValue.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: DisabledAnimation.Animation.StartColor.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: HighlightedAnimation.Animation.ToValue.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: SelectedAnimation.Animation.StartColor.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: HighlightedAnimation.Animation.FromValue.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774667748979947458, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
+      propertyPath: HighlightedAnimation.Animation.StartColor.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
     - target: {fileID: 8774667748979947484, guid: 3e0a381bf23b8824984c236c61f336f0, type: 3}
       propertyPath: m_IsActive
       value: 1
