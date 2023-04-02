@@ -25,6 +25,9 @@ namespace Sankusa.unity1week202303.Domain
             set => name = value;
         }
 
+        [SerializeField] private string description;
+        public string Description => description;
+
         private ReactiveProperty<HumanState> state = new ReactiveProperty<HumanState>();
         public HumanState State => state.Value;
         public IObservable<HumanState> OnStateChanged => state;
@@ -49,6 +52,14 @@ namespace Sankusa.unity1week202303.Domain
         [SerializeField, SimpleHorizontalDrawer] private List<Thought> thoughts = new List<Thought>();
         public IReadOnlyList<Thought> Thoughts => thoughts;
 
+        public bool Finished
+        {
+            get
+            {
+                return thoughts.Count > 0 && thoughts[0].Name == PlayerSetting.targetname;
+            }
+        }
+
         private Subject<(HumanParameter, float)> onParameterValueChanged = new Subject<(HumanParameter, float)>();
         public Subject<(HumanParameter, float)> OnParameterValueChanged => onParameterValueChanged;
 
@@ -63,9 +74,16 @@ namespace Sankusa.unity1week202303.Domain
         }
         public IObservable<bool> OnIsInvokingCommandChanged => isInvokingCommand;
 
+        private Dictionary<string, int> receivedCommands = new Dictionary<string, int>();
+        public Dictionary<string, int> ReceivedCommands => receivedCommands;
+
         // CommandMasterはPresentation名前空間にあるのでHumanParameterMasterのようにシングルトンを利用して具象型を参照するのは避けたい。
         // なのでInitialize時にインターフェース型で注入してもらう。
         private ICommandMaster commandMaster;
+
+        private bool isBrainwashed = false;
+        private Subject<Unit> onBrainwashed = new Subject<Unit>();
+        public IObservable<Unit> OnBrainwashed => onBrainwashed;
 
         // parameterにhumanを注入(Parameterの実効値計算に必要なので他から参照される前に呼ぶこと)
         public void Initialize(ICommandMaster commandMaster)
@@ -74,6 +92,10 @@ namespace Sankusa.unity1week202303.Domain
             parameters.ForEach(x => x.Initialize(this));
             SortParameters();
             SortUsableCommandIdList();
+            thoughts.ForEach(x =>
+            {
+                if(x.Name == Thought.thoughtNameForPlayer) x.Name = PlayerSetting.targetname;
+            });
             SortThoughts();
         }
 
@@ -135,11 +157,34 @@ namespace Sankusa.unity1week202303.Domain
             SortThoughts();
 
             onThoughtValueChanged.OnNext((thought, value));
+
+            if(!isBrainwashed)
+            {
+                if(thoughts[0].Name == PlayerSetting.targetname)
+                {
+                    isBrainwashed = true;
+                    onBrainwashed.OnNext(Unit.Default);
+                }
+            }
         }
 
         private void SortThoughts()
         {
             thoughts.Sort((a, b) => b.Value.CompareTo(a.Value));
+        }
+
+        public void IncrementReceivedCommand(string commandId)
+        {
+            if(!receivedCommands.ContainsKey(commandId))
+            {
+                receivedCommands[commandId]= 0;
+            }
+            receivedCommands[commandId]++;
+        }
+
+        public int SafeGetReceivedCommand(string commandId)
+        {
+            return receivedCommands.ContainsKey(commandId) ? receivedCommands[commandId] : 0;
         }
     }
 }

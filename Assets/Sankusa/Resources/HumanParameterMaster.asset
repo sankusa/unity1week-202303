@@ -21,7 +21,7 @@ MonoBehaviour:
     max: 0
     rateAdditionResources: []
   - parameterId: Energy
-    displayName: "\u30A8\u30CD\u30EB\u30AE\u30FC"
+    displayName: "\u30C1\u30E3\u30AF\u30E9"
     useMin: 1
     min: 0
     useMax: 0
@@ -59,8 +59,15 @@ MonoBehaviour:
     rateAdditionResources: []
   - parameterId: Like
     displayName: "\u597D\u611F\u5EA6"
+    useMin: 0
+    min: 0
+    useMax: 0
+    max: 100
+    rateAdditionResources: []
+  - parameterId: Foot
+    displayName: "\u811A\u529B"
     useMin: 1
     min: 0
-    useMax: 1
+    useMax: 0
     max: 100
     rateAdditionResources: []

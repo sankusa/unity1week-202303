@@ -11,13 +11,17 @@ namespace Sankusa.unity1week202303.Domain
         public static readonly string thoughtNameForPlayer = "XXX";
 
         [SerializeField] private string name;
-        public string Name => name;
+        public string Name
+        {
+            get => name;
+            set => name = value;
+        }
 
         [SerializeField] private float value;
         public float Value
         {
             get => value;
-            set => this.value = value;
+            set => this.value = Mathf.Clamp(value, 0, 999);
         }
 
         public Thought(string name)

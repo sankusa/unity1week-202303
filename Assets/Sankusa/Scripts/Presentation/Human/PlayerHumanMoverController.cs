@@ -49,7 +49,11 @@ namespace Sankusa.unity1week202303.Presentation
                 direction += cameraRotationY * Vector3.right;
             }
             direction.Normalize();
-            mover.SetVelocity(direction * speed + velocityY * Vector3.down);
+
+            float finallySpeed = speed;
+            HumanParameter foot = humanCore.Human.FindParameter(HumanParameterId.Foot);
+            if(foot != null) finallySpeed += foot.Value / 5f;
+            mover.SetVelocity(direction * finallySpeed + velocityY * Vector3.down);
         }
     }
 }

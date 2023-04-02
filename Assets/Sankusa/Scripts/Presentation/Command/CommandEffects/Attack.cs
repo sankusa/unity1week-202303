@@ -27,7 +27,6 @@ namespace Sankusa.unity1week202303.Presentation
 
             arg.InGameCamera.Shake();
             SoundManager.Instance.PlaySe(SoundId.SE_Attack);
-            arg.Target.GetHumanComponent<HumanTextEffectGenerator>()?.GenerateTalkTextEffect("いたい");
 
             await UniTask.Yield();
         }

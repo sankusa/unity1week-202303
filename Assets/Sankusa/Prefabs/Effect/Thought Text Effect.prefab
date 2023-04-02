@@ -84,7 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &430941988367591124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   duration: 1
   toAlpha: 0
   alphaEase: 17
-  moveOffset: {x: 0, y: 2, z: 0}
+  moveOffset: {x: 0, y: 1, z: 0}
   moveEase: 1
   onStart:
     m_PersistentCalls:

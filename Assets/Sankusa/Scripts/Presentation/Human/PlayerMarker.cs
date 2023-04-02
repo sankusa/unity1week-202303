@@ -11,6 +11,7 @@ namespace Sankusa.unity1week202303.Presentation
         {
             base.Initialize(humanCore);
             humanCore.Human.IsPlayer = true;
+            humanCore.Human.Name = PlayerSetting.playerName;
         }
 
         void OnDestroy()

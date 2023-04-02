@@ -19,10 +19,11 @@ namespace Sankusa.unity1week202303.Presentation
         private readonly CommandMaster commandMaster;
         private readonly BattlePerformer battlePerformer;
         private readonly InGameCamera inGameCamera;
+        private readonly DiContainer diContainer;
         private readonly CancellationTokenSource source = new CancellationTokenSource();
 
         [Inject]
-        public CommandInvoker(Faith faith, GameTimer gameTimer, FinishFlag finishFlag, HumanManager humanManager, BattleManager battleManager, CommandMaster commandMaster, BattlePerformer battlePerformer, InGameCamera inGameCamera)
+        public CommandInvoker(Faith faith, GameTimer gameTimer, FinishFlag finishFlag, HumanManager humanManager, BattleManager battleManager, CommandMaster commandMaster, BattlePerformer battlePerformer, InGameCamera inGameCamera, DiContainer diContainer)
         {
             this.faith = faith;
             this.gameTimer = gameTimer;
@@ -32,18 +33,30 @@ namespace Sankusa.unity1week202303.Presentation
             this.commandMaster = commandMaster;
             this.battlePerformer = battlePerformer;
             this.inGameCamera = inGameCamera;
+            this.diContainer = diContainer;
         }
 
-        public async UniTaskVoid InvokeCommandAsync(HumanCore user, string commandId)
+        public async UniTask InvokeCommandAsync(HumanCore user, string commandId)
         {
+            user.Human.IsInvokingCommand = true;
+
             CommandArg arg = ConstructCommandArg(user, commandId);
 
             await commandMaster.FindByCommandId(arg.CommandId).InvokeAsync(arg, source.Token);
 
-            CommandReacterBase reacter = user.Human.BattleTarget?.GetHumanComponent<CommandReacterBase>();
-            if(reacter != null)
+            NPCBase npc = user.Human.BattleTarget?.GetHumanComponent<NPCBase>();
+            if(npc != null)
             {
-                await reacter.ReactionAsync(arg);
+                await npc.ReactionAsync(arg);
+            }
+
+            user.Human.BattleTarget?.Human.IncrementReceivedCommand(commandId);
+
+            user.Human.IsInvokingCommand = false;
+
+            if(npc != null)
+            {
+                await npc.ActAsync();
             }
         }
 
@@ -66,6 +79,7 @@ namespace Sankusa.unity1week202303.Presentation
             arg.FinishFlag = finishFlag;
             arg.BattlePerformer = battlePerformer;
             arg.InGameCamera = inGameCamera;
+            arg.DiContainer = diContainer;
             return arg;
         }
 

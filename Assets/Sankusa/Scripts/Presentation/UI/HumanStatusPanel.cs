@@ -11,6 +11,8 @@ namespace Sankusa.unity1week202303.Presentation
     public class HumanStatusPanel : MonoBehaviour
     {
         [SerializeField] private TMP_Text nameText;
+        [SerializeField] private TMP_Text descriptionText;
+        [SerializeField] private TMP_Text faithProduceText;
         [SerializeField] private HumanParameterRow parameterRowPrefab;
         [SerializeField] private Transform parameterRowRoot;
         [SerializeField] private HumanThoughtRow thoughtRowPrefab;
@@ -43,8 +45,10 @@ namespace Sankusa.unity1week202303.Presentation
             {
                 gameObject.SetActive(true);
             }
-            
+
             nameText.text = human.Name;
+            descriptionText.text = human.Description;
+            faithProduceText.text = "信仰生産 " + human.FaithProduce.ToString() + " / s";
 
             parameterRows = TransformUtil.AdjustChildCount<HumanParameterRow>(parameterRowRoot, parameterRowPrefab.gameObject, human.Parameters.Count);
             for(int i = 0;  i < human.Parameters.Count; i++)

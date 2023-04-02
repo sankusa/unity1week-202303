@@ -7,6 +7,7 @@ using SankusaLib;
 using Cysharp.Threading.Tasks;
 using System.Threading;
 using System;
+using SankusaLib.SoundLib;
 
 namespace Sankusa.unity1week202303.Presentation
 {
@@ -35,6 +36,7 @@ namespace Sankusa.unity1week202303.Presentation
                 {
                     TextEffect textEffect = Instantiate(EffectPrefabMaster.Instance.ThoughtTextEffectPrefab, effectGeneratePositionMarker.position, Quaternion.identity);
                     textEffect.Text = x.Item1.Name + " " + x.Item2.ToString("+#;-#;");
+                    SoundManager.Instance.PlaySe(SoundId.SE_Thought);
                 })
                 .AddTo(this);
         }

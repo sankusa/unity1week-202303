@@ -77,6 +77,14 @@ namespace Sankusa.unity1week202303.Presentation
                     .Select(x => CommandMaster.Instance.FindByCommandId(x))
                     .Where(x => x.Timing == CommandTiming.Battle || x.Timing == CommandTiming.FieldAndBattle)
                     .ToList();
+
+                NPCBase npc = playerHumanCore.Human.BattleTarget.GetHumanComponent<NPCBase>();
+                if(npc != null)
+                {
+                    invokableCommands.AddRange(npc.TemporaryCommands.Select(x => CommandMaster.Instance.FindByCommandId(x))
+                    .Where(x => x.Timing == CommandTiming.Battle || x.Timing == CommandTiming.FieldAndBattle)
+                    .ToList());
+                }
             }
 
             List<CommandButton> commandButtons = TransformUtil.AdjustChildCount<CommandButton>(container, grid.transform, commandButtonPrefab.gameObject, invokableCommands.Count);

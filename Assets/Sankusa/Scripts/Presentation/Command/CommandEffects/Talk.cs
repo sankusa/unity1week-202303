@@ -15,8 +15,6 @@ namespace Sankusa.unity1week202303.Presentation
         public override async UniTask InvokeAsync(CommandArg arg, CancellationToken token)
         {
             await arg.User.GetHumanComponent<HumanTextEffectGenerator>().GenerateTalkTextEffect(message);
-
-            await UniTask.Delay(1000);
         }
     }
 }

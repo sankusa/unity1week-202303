@@ -16,10 +16,7 @@ namespace Sankusa.unity1week202303.Presentation
         {
             if(arg.User.Human.Thoughts.Count > 0)
             {
-                await arg.User.GetHumanComponent<HumanTextEffectGenerator>().GenerateTalkTextEffect(arg.User.Human.Thoughts[0].Name + " はいいぞ");
-                await arg.Target.GetHumanComponent<HumanTextEffectGenerator>().GenerateTalkTextEffect("なるほど");
-                await UniTask.Delay(1000);
-                arg.Target.Human.AddThoughtValue(arg.User.Human.Thoughts[0].Name, thoughtRate);
+                await arg.User.GetHumanComponent<HumanTextEffectGenerator>().GenerateTalkTextEffect(PlayerSetting.targetname + " はいいぞ");
             }
         }
     }

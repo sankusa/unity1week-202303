@@ -10,6 +10,7 @@ using TMPro;
 using Cysharp.Threading.Tasks;
 using System.Threading;
 using System;
+using UnityEngine.UI;
 
 namespace Sankusa.unity1week202303.Presentation
 {
@@ -17,6 +18,7 @@ namespace Sankusa.unity1week202303.Presentation
     {
         [SerializeField] private UIButton button;
         [SerializeField] private TMP_Text label;
+        [SerializeField] private Image inactiveImage;
         [Inject] private CommandMaster commandMaster;
         [Inject] private CommandInvoker commandInvoker;
         private HumanCore commandUser;
@@ -32,8 +34,11 @@ namespace Sankusa.unity1week202303.Presentation
         {
             button.AddListenerToPointerClick(() =>
             {
-                // コマンド実行
-                commandInvoker.InvokeCommandAsync(commandUser, command.CommandId).Forget();
+                if(commandInvoker.IsInvokable(commandUser, command.CommandId))
+                {
+                    // コマンド実行
+                    commandInvoker.InvokeCommandAsync(commandUser, command.CommandId).Forget();
+                }
             });
 
             button.AddListenerToPointerExit(() =>
@@ -75,7 +80,7 @@ namespace Sankusa.unity1week202303.Presentation
             }
             
             label.text = command.Name;
-            button.interactable = commandInvoker.IsInvokable(commandUser, command.CommandId);
+            inactiveImage.enabled = !commandInvoker.IsInvokable(commandUser, command.CommandId);
         }
     }
 }

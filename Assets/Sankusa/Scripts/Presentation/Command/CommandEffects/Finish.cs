@@ -17,9 +17,9 @@ namespace Sankusa.unity1week202303.Presentation
             await UniTask.CompletedTask;
         }
 
-        public override bool IsInvokable(CommandArg arg)
-        {
-            return arg.Faith.IsFilled;
-        }
+        // public override bool IsInvokable(CommandArg arg)
+        // {
+        //     return arg.Faith.IsFilled;
+        // }
     }
 }

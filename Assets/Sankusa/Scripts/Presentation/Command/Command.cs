@@ -17,8 +17,8 @@ namespace Sankusa.unity1week202303.Presentation
         [SerializeField] private string name;
         public string Name => name;
 
-        [SerializeField, Min(0)] private int energyCost;
-        public int EnergyCost => energyCost;
+        [SerializeField, Min(0)] private int cost;
+        public int Cost => cost;
 
         [SerializeField] private CommandUser user;
         public CommandUser User => user;
@@ -30,7 +30,7 @@ namespace Sankusa.unity1week202303.Presentation
         public CommandEffectBase CommandEffect => commandEffect;
 
         [SerializeField] private string description;
-        public string Description => description;
+        public string Description => description + " " + (cost > 0 ? "(信仰 -" + cost + ")" : "");
 
         public bool IsLearnable(HumanCore user)
         {
@@ -46,16 +46,13 @@ namespace Sankusa.unity1week202303.Presentation
 
         public async UniTask InvokeAsync(CommandArg commandArg, CancellationToken token)
         {
-            commandArg.User.Human.IsInvokingCommand = true;
-
+            commandArg.Faith.AddValue(-cost);
             await commandEffect.InvokeAsync(commandArg, token);
-
-            commandArg.User.Human.IsInvokingCommand = false;
         }
 
         public bool IsInvokable(CommandArg arg)
         {
-            return commandEffect.IsInvokable(arg);
+            return commandEffect.IsInvokable(arg) && arg.Faith.Value >= cost;
         }
     }
 }

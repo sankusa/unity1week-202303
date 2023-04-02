@@ -28,3 +28,16 @@ MonoBehaviour:
     pitch: 1
     start: 0.07228917
     end: 0.9999999
+  - id: SE_Thought
+    clip: {fileID: 8300000, guid: 80e228ccad5d07843a028371b71f7f70, type: 3}
+    volumeType: 0
+    volume: 0.5
+    volumeCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    pitch: 1
+    start: 0.058139537
+    end: 1

@@ -14,44 +14,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commands:
   - commandId: Finish
-    name: "\u4FE1\u4EF0\u7389"
-    energyCost: 0
+    name: "\u7D42\u308F\u308A"
+    cost: 0
     user: 0
     timing: 0
     commandEffect: {fileID: 11400000, guid: a63302b023018bd4e95f3f1773806fcf, type: 2}
-    description: 
+    description: "\u3055\u3088\u3046\u306A\u3089"
   - commandId: StartBattle
-    name: "\u5E03\u6559\u958B\u59CB"
-    energyCost: 0
+    name: "\u5E03\u6559\u3092\u59CB\u3081\u308B"
+    cost: 0
     user: 0
     timing: 0
     commandEffect: {fileID: 11400000, guid: 7d26380757e28fa4e94e024d52d8e32a, type: 2}
     description: "\u5E03\u6559\u3092\u59CB\u3081\u308B\u3002"
   - commandId: StopBattle
-    name: "\u5E03\u6559\u4E2D\u6B62"
-    energyCost: 0
+    name: "\u5E03\u6559\u3092\u3084\u3081\u308B"
+    cost: 0
     user: 0
     timing: 1
     commandEffect: {fileID: 11400000, guid: 1667e698f77bd94429d0da1928c1f10f, type: 2}
     description: "\u5E03\u6559\u3092\u4E2D\u6B62\u3059\u308B\u3002"
-  - commandId: Punch
-    name: "\u6BB4\u308B"
-    energyCost: 0
-    user: 2
-    timing: 1
-    commandEffect: {fileID: 11400000, guid: f39518f5e8733e543a0d08dce780fd8c, type: 2}
-    description: "\u6BB4\u308B\u3002"
-  - commandId: Inform
-    name: "\u826F\u3055\u3092\u4F1D\u3048\u308B"
-    energyCost: 1
-    user: 2
-    timing: 1
-    commandEffect: {fileID: 11400000, guid: da30d8fc27b858348b3ad5b715649a53, type: 2}
-    description: "\u3084\u3093\u308F\u308A\u4F1D\u3048\u308B\u3002"
   - commandId: Greeting
     name: "\u6328\u62F6"
-    energyCost: 0
+    cost: 0
     user: 2
     timing: 1
     commandEffect: {fileID: 11400000, guid: 358b636415b0d8d4484213b899e09a85, type: 2}
     description: "\u307E\u305A\u306F\u3042\u3044\u3055\u3064\u3002"
+  - commandId: Inform
+    name: "\u4F1D\u3048\u308B"
+    cost: 0
+    user: 2
+    timing: 1
+    commandEffect: {fileID: 11400000, guid: da30d8fc27b858348b3ad5b715649a53, type: 2}
+    description: "\u3075\u3064\u3046\u306B\u4F1D\u3048\u308B\u3002"
+  - commandId: Punch
+    name: "\u30D1\u30F3\u30C1"
+    cost: 0
+    user: 2
+    timing: 1
+    commandEffect: {fileID: 11400000, guid: f39518f5e8733e543a0d08dce780fd8c, type: 2}
+    description: "\u6BB4\u308B\u3002"
+  - commandId: FootBuff
+    name: "\u811A\u529B\u5F37\u5316"
+    cost: 5
+    user: 2
+    timing: 2
+    commandEffect: {fileID: 11400000, guid: caf66d0c8c59c984b9f5be79fc0aedb7, type: 2}
+    description: "\u4FE1\u4EF0\u3067\u811A\u3092\u5F37\u5316\u3002"
+  - commandId: Talk
+    name: "\u8A71\u3092\u805E\u304F"
+    cost: 0
+    user: 0
+    timing: 1
+    commandEffect: {fileID: 11400000, guid: f0273bed1de9b7346b47a99dfd312b10, type: 2}
+    description: "\u8A71\u3092\u805E\u304F\u3002"
+  - commandId: VillagerBig
+    name: "\u6751\u4EBA\u5DE8\u5927\u5316"
+    cost: 0
+    user: 0
+    timing: 2
+    commandEffect: {fileID: 11400000, guid: afa084e111749aa43baa749e8dc5572b, type: 2}
+    description: "\u6751\u4EBA\u3092\u5DE8\u5927\u5316"

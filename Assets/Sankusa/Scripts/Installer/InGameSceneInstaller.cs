@@ -8,6 +8,7 @@ public class InGameSceneInstaller : MonoInstaller
     [SerializeField] private InGameCamera inGameCamera;
     [SerializeField] private CommandMaster commandMaster;
     [SerializeField] private BattlePerformer battlePerformer;
+    [SerializeField] private FinishPanel finishPanel;
     public override void InstallBindings()
     {
         // Domain
@@ -55,6 +56,11 @@ public class InGameSceneInstaller : MonoInstaller
         Container
             .BindInterfacesAndSelfTo<BattlePerformer>()
             .FromInstance(battlePerformer)
+            .NonLazy();
+
+        Container
+            .BindInterfacesAndSelfTo<FinishPanel>()
+            .FromInstance(finishPanel)
             .NonLazy();
 
         Container

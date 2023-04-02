@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sankusa.unity1week202303.Domain;
+using Zenject;
 
 namespace Sankusa.unity1week202303.Presentation
 {
@@ -68,6 +69,13 @@ namespace Sankusa.unity1week202303.Presentation
         {
             get => inGameCamera;
             set => inGameCamera = value;
+        }
+
+        private DiContainer diContainer;
+        public DiContainer DiContainer
+        {
+            get => diContainer;
+            set => diContainer = value;
         }
     }
 }
